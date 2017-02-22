@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Windows.System.Display;
 using Windows.Graphics.Display;
 using Windows.UI.Core;
+using Windows.Devices.Enumeration;
+using System.Linq;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -18,9 +20,44 @@ namespace DarkRoomSelfie
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        MediaCapture _mediaCapture = null;
-        DisplayRequest _displayRequest = null;
-        bool _isPreviewing;
+        private MediaCapture _mediaCapture = null;
+        private DisplayRequest _displayRequest = null;
+        private bool _isPreviewing;
+
+        private async Task InitializeCameraAsync()
+        {
+            if (_mediaCapture == null)
+            {
+                // Get the camera devices
+                var cameraDevices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
+
+                // try to get the back facing device for a phone
+                var backFacingDevice = cameraDevices.FirstOrDefault
+                (
+                    c => c.EnclosureLocation?.Panel == Windows.Devices.Enumeration.Panel.Front
+                );
+
+
+                // but if that doesn't exist, take the first camera device available
+                var preferredDevice = backFacingDevice ?? cameraDevices.FirstOrDefault();
+
+                // Create MediaCapture
+                _mediaCapture = new MediaCapture();
+
+                // Initialize MediaCapture and settings
+                await _mediaCapture.InitializeAsync(
+                    new MediaCaptureInitializationSettings
+                    {
+                        VideoDeviceId = preferredDevice.Id
+                    });
+
+                // Set the preview source for the CaptureElement
+                PreviewControl.Source = _mediaCapture;
+
+                // Start viewing through the CaptureElement 
+                await _mediaCapture.StartPreviewAsync();
+            }
+        }
 
         private async Task StartPreviewAsync()
         {
@@ -80,12 +117,22 @@ namespace DarkRoomSelfie
         {
             this.InitializeComponent();
 
-            OpenCamera();
+            //OpenCamera();
 
             //shutting down the preview stream when app suspending
             Application.Current.Suspending += Application_Suspending;
+
+            Application.Current.Resuming += Application_Resuming;
+        }
+        private async void Application_Resuming(object sender, object o)
+        {
+            await InitializeCameraAsync();
         }
 
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            await InitializeCameraAsync();
+        }
         //shutting down the preview stream when the user navigates away from our page
         protected async override void OnNavigatedFrom(NavigationEventArgs e)
         {
