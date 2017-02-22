@@ -10,6 +10,12 @@ using Windows.Graphics.Display;
 using Windows.UI.Core;
 using Windows.Devices.Enumeration;
 using System.Linq;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.Media.MediaProperties;
+using Windows.Graphics.Imaging;
+using Windows.Storage.FileProperties;
+using Windows.Foundation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -31,25 +37,24 @@ namespace DarkRoomSelfie
                 // Get the camera devices
                 var cameraDevices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
 
-                // try to get the back facing device for a phone
-                var backFacingDevice = cameraDevices.FirstOrDefault
+                // try to get the front facing device for a phone
+                var FrontFacingDevice = cameraDevices.FirstOrDefault
                 (
                     c => c.EnclosureLocation?.Panel == Windows.Devices.Enumeration.Panel.Front
                 );
 
 
                 // but if that doesn't exist, take the first camera device available
-                var preferredDevice = backFacingDevice ?? cameraDevices.FirstOrDefault();
+                var preferredDevice = FrontFacingDevice ?? cameraDevices.FirstOrDefault();
 
                 // Create MediaCapture
                 _mediaCapture = new MediaCapture();
 
                 // Initialize MediaCapture and settings
-                await _mediaCapture.InitializeAsync(
-                    new MediaCaptureInitializationSettings
-                    {
+                await _mediaCapture.InitializeAsync(new MediaCaptureInitializationSettings
+                {
                         VideoDeviceId = preferredDevice.Id
-                    });
+                });
 
                 // Set the preview source for the CaptureElement
                 PreviewControl.Source = _mediaCapture;
@@ -124,6 +129,41 @@ namespace DarkRoomSelfie
 
             Application.Current.Resuming += Application_Resuming;
         }
+
+        public async void CapturePhoto_Click(object sender, RoutedEventArgs e)
+        {
+            //Getting access to Pictures folder
+            var myPictures = await StorageLibrary.GetLibraryAsync(KnownLibraryId.Pictures);
+
+            //Createing the file that will be saved
+            StorageFile file = await myPictures.SaveFolder.CreateFileAsync("night-photo.jpg", CreationCollisionOption.GenerateUniqueName);
+
+            //Capture a photo to the stream
+            using (var captureStream = new InMemoryRandomAccessStream())
+            {
+                //Common encoding with JPEG format
+                await _mediaCapture.CapturePhotoToStreamAsync(ImageEncodingProperties.CreateJpeg(), captureStream);
+
+                using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
+                {
+                    //Decode the image from the memory stream
+                    var decoder = await BitmapDecoder.CreateAsync(captureStream);
+
+                    //Encode the image to file
+                    var encoder = await BitmapEncoder.CreateForTranscodingAsync(fileStream, decoder);
+
+                    //Including metadata about the photo in the image file
+                    var properties = new BitmapPropertySet
+                    {
+                        { "System.Photo.Orientation", new BitmapTypedValue(PhotoOrientation.Normal, PropertyType.UInt16) }
+                    };
+                    await encoder.BitmapProperties.SetPropertiesAsync(properties);
+
+                    await encoder.FlushAsync();
+                }
+            }   
+        }
+
         private async void Application_Resuming(object sender, object o)
         {
             await InitializeCameraAsync();

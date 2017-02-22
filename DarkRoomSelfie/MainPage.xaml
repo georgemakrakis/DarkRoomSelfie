@@ -9,6 +9,6 @@
 
     <Grid Background="#FFFFFF">
         <CaptureElement Name="PreviewControl" Stretch="Uniform" Width="300" Height="300"/>
-        <Button Name="Capture" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Capture" Margin="144,0,143,33"></Button>
+        <Button Name="Capture" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Capture" Margin="144,0,143,33" Click="CapturePhoto_Click"></Button>
     </Grid>
 </Page>
