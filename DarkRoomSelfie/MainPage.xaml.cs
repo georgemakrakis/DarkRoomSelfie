@@ -18,6 +18,7 @@ using Windows.Storage.FileProperties;
 using Windows.Foundation;
 using DarkRoomSelfie.Helpers;
 using Windows.UI.Xaml.Media;
+using Windows.ApplicationModel.Core;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -41,49 +42,67 @@ namespace DarkRoomSelfie
         {
             if (_mediaCapture == null)
             {
-                // Get the camera devices
-                var cameraDevices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
-
-                // try to get the front facing device for a phone
-                var FrontFacingDevice = cameraDevices.FirstOrDefault
-                (
-                    c => c.EnclosureLocation?.Panel == Windows.Devices.Enumeration.Panel.Front                    
-                );                         
-
-                // but if that doesn't exist, take the first camera device available
-                var preferredDevice = FrontFacingDevice ?? cameraDevices.FirstOrDefault();
-
-                if (preferredDevice.EnclosureLocation == null || preferredDevice.EnclosureLocation.Panel == Windows.Devices.Enumeration.Panel.Unknown)
+                try
                 {
-                    _externalCamera = true;
-                }
-                else
-                {
-                    _externalCamera = false;
-                    _mirroringPreview = (preferredDevice.EnclosureLocation.Panel == Windows.Devices.Enumeration.Panel.Front);
-                }
+                    // Get the camera devices
+                    var cameraDevices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
 
-                _mirroringPreview = true;
+                    // try to get the front facing device for a phone
+                    var FrontFacingDevice = cameraDevices.FirstOrDefault
+                    (
+                        c => c.EnclosureLocation?.Panel == Windows.Devices.Enumeration.Panel.Front
+                    );
 
-                // Create MediaCapture
-                _mediaCapture = new MediaCapture();
+                    // but if that doesn't exist, take the first camera device available
+                    var preferredDevice = FrontFacingDevice ?? cameraDevices.FirstOrDefault();
 
-                // Initialize MediaCapture and settings
-                await _mediaCapture.InitializeAsync(new MediaCaptureInitializationSettings
-                {
+                    if (preferredDevice.EnclosureLocation == null || preferredDevice.EnclosureLocation.Panel == Windows.Devices.Enumeration.Panel.Unknown)
+                    {
+                        _externalCamera = true;
+                    }
+                    else
+                    {
+                        _externalCamera = false;
+                        _mirroringPreview = (preferredDevice.EnclosureLocation.Panel == Windows.Devices.Enumeration.Panel.Front);
+                    }
+
+                    _mirroringPreview = true;
+
+                    // Create MediaCapture
+                    _mediaCapture = new MediaCapture();
+
+                    // Initialize MediaCapture and settings
+                    await _mediaCapture.InitializeAsync(new MediaCaptureInitializationSettings
+                    {
                         VideoDeviceId = preferredDevice.Id
-                });
+                    });
 
-                _rotationHelper = new CameraRotationHelper(preferredDevice.EnclosureLocation);
-                _rotationHelper.OrientationChanged += RotationHelper_OrientationChanged;
+                    _rotationHelper = new CameraRotationHelper(preferredDevice.EnclosureLocation);
+                    _rotationHelper.OrientationChanged += RotationHelper_OrientationChanged;
 
-                // Set the preview source for the CaptureElement
-                PreviewControl.Source = _mediaCapture;
-                PreviewControl.FlowDirection = _mirroringPreview ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
+                    // Set the preview source for the CaptureElement
+                    PreviewControl.Source = _mediaCapture;
+                    PreviewControl.FlowDirection = _mirroringPreview ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
 
-                // Start viewing through the CaptureElement 
-                await _mediaCapture.StartPreviewAsync();
-                await SetPreviewRotationAsync();
+                    // Start viewing through the CaptureElement 
+                    await _mediaCapture.StartPreviewAsync();
+                    await SetPreviewRotationAsync();
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    // This will be thrown if the user denied access to the camera in privacy settings
+                    System.Diagnostics.Debug.WriteLine("This app was denied access to the camera");
+                    var dialog = new Windows.UI.Popups.MessageDialog("This app was denied access to the camera");
+                    await dialog.ShowAsync();
+                    CoreApplication.Exit();
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("MediaCapture initialization failed. {0}", ex.Message);
+                    var dialog = new Windows.UI.Popups.MessageDialog("MediaCapture initialization failed. { 0 }", ex.Message);
+                    await dialog.ShowAsync();
+                    CoreApplication.Exit();
+                }
             }
         }
 

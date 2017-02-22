@@ -23,6 +23,7 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Content" />
       <RootProperty Name="Margin" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="DarkRoomSelfie.MainPage" />
   </Roots.RootTypes>

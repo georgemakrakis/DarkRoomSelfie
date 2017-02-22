@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>9E51143CAA6059155412DFA52DAA164EEA66F8840239632332324CEC27615ED6</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>BAB33FFB66C8CE5423B8BEC54A8847AD104CEE307B13E7E5DE4EFC7E9BD90D9A</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>cdb32e2a-5d7f-44e5-b963-c4b363aed8db_1.0.0.0_x86__0qkkhjbh1hzk6</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>cdb32e2a-5d7f-44e5-b963-c4b363aed8db_0qkkhjbh1hzk6!App</RegisteredUserModeAppID>
     <RegisteredPackageID>cdb32e2a-5d7f-44e5-b963-c4b363aed8db</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-21T19:31:24.063</Modified>
+      <Modified>2017-02-22T21:53:43.766</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\DarkRoomSelfie.exe">
       <PackagePath>entrypoint\DarkRoomSelfie.exe</PackagePath>
-      <Modified>2017-02-21T19:31:22.949</Modified>
+      <Modified>2017-02-22T21:53:43.344</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\georg\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -488,7 +488,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\DarkRoomSelfie.xr.xml">
       <PackagePath>DarkRoomSelfie.xr.xml</PackagePath>
-      <Modified>2017-02-21T19:31:22.567</Modified>
+      <Modified>2017-02-22T21:45:10.009</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -497,11 +497,11 @@
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-21T19:31:23.751</Modified>
+      <Modified>2017-02-22T21:45:11.640</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\Core\DarkRoomSelfie.exe">
       <PackagePath>DarkRoomSelfie.exe</PackagePath>
-      <Modified>2017-02-21T19:31:24.050</Modified>
+      <Modified>2017-02-22T21:53:43.760</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
