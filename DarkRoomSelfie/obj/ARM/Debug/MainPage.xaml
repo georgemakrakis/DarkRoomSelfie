@@ -7,9 +7,56 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="#FFFFFF">
-        <CaptureElement x:ConnectionId='1' Name="PreviewControl" Stretch="Uniform" Width="300" Height="300"/>
-        <Button x:ConnectionId='2' Name="Capture" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Capture" Margin="144,0,143,33"                           ></Button>
+    <Grid x:ConnectionId='1' Background="#FFFFFF" x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition MaxWidth="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition MaxHeight="80"/>
+        </Grid.RowDefinitions>
+
+        <!--<Grid x:Name="FirstGrid" Grid.Column="0" Grid.Row="0" Background="#0078d7" />
+        <Grid x:Name="SecondGrid" Grid.Column="1" Grid.Row="0" Background="#107C10" />-->
+        <CaptureElement x:ConnectionId='2' x:Name="PreviewControl" Stretch="Uniform"/>
+        <Button x:ConnectionId='3' x:Name="Capture" HorizontalAlignment="Center" Content="Capture"                           ></Button>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:ConnectionId='4' x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainGrid.Margin" Value="24"/>
+                        <Setter Target="MainGrid.RowDefinitions[1].Height" Value="auto"/>
+                        <Setter Target="MainGrid.ColumnDefinitions[1].Width" Value="*"/>
+                        <Setter Target="PreviewControl.Margin" Value="0 0 6 0" />
+                        <Setter Target="PreviewControl.Width" Value="600"/>
+                        <Setter Target="PreviewControl.Height" Value="600"/>
+                        <Setter Target="Capture.Margin" Value="6 0 0 0"/>
+                        <Setter Target="Capture.(Grid.Column)" Value="1"/>
+                        <Setter Target="Capture.(Grid.Row)" Value="0"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:ConnectionId='5' x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainGrid.Margin" Value="12"/>
+                        <Setter Target="PreviewControl.Margin" Value="0 0 0 6"/>
+                        <Setter Target="PreviewControl.Width" Value="300"/>
+                        <Setter Target="PreviewControl.Height" Value="300"/>
+                        <Setter Target="Capture.Margin" Value="0 3 0 0"/>
+                        <Setter Target="MainGrid.RowDefinitions[1].Height" Value="*"/>
+                        <Setter Target="MainGrid.ColumnDefinitions[1].Width" Value="auto"/>
+                        <Setter Target="Capture.(Grid.Column)" Value="0"/>
+                        <Setter Target="Capture.(Grid.Row)" Value="1"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>
 
