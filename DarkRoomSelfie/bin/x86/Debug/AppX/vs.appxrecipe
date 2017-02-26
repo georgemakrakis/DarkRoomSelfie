@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-22T21:53:43.766</Modified>
+      <Modified>2017-02-26T15:36:21.411</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\DarkRoomSelfie.exe">
       <PackagePath>entrypoint\DarkRoomSelfie.exe</PackagePath>
-      <Modified>2017-02-22T21:53:43.344</Modified>
+      <Modified>2017-02-26T15:36:20.894</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\georg\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -488,7 +488,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\DarkRoomSelfie.xr.xml">
       <PackagePath>DarkRoomSelfie.xr.xml</PackagePath>
-      <Modified>2017-02-22T21:45:10.009</Modified>
+      <Modified>2017-02-26T14:37:04.971</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -497,11 +497,11 @@
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-02-22T21:45:11.640</Modified>
+      <Modified>2017-02-26T14:37:41.816</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\Core\DarkRoomSelfie.exe">
       <PackagePath>DarkRoomSelfie.exe</PackagePath>
-      <Modified>2017-02-22T21:53:43.760</Modified>
+      <Modified>2017-02-26T15:36:21.403</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

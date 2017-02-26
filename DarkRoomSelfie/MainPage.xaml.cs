@@ -1,24 +1,23 @@
-﻿using System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
-using Windows.Media.Capture;
-using Windows.ApplicationModel;
-using System.Threading.Tasks;
-using Windows.System.Display;
-using Windows.Graphics.Display;
-using Windows.UI.Core;
-using Windows.Devices.Enumeration;
+﻿using DarkRoomSelfie.Helpers;
+using System;
 using System.Linq;
+using System.Threading.Tasks;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Core;
+using Windows.Devices.Enumeration;
+using Windows.Foundation;
+using Windows.Graphics.Display;
+using Windows.Graphics.Imaging;
+using Windows.Media.Capture;
+using Windows.Media.MediaProperties;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using Windows.Media.MediaProperties;
-using Windows.Graphics.Imaging;
-using Windows.Storage.FileProperties;
-using Windows.Foundation;
-using DarkRoomSelfie.Helpers;
+using Windows.System.Display;
+using Windows.UI.Core;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
-using Windows.ApplicationModel.Core;
+using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -92,14 +91,22 @@ namespace DarkRoomSelfie
                 {
                     // This will be thrown if the user denied access to the camera in privacy settings
                     System.Diagnostics.Debug.WriteLine("This app was denied access to the camera");
-                    var dialog = new Windows.UI.Popups.MessageDialog("This app was denied access to the camera");
+                    var dialog = new Windows.UI.Popups.MessageDialog("This app was denied access to the camera","Permission Denied");
                     await dialog.ShowAsync();
                     CoreApplication.Exit();
+                }               
+                catch(NullReferenceException ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("MediaCapture initialization failed. {0}", ex.Message);
+                    var dialog = new Windows.UI.Popups.MessageDialog("Please connect a camera device to proceed.", "Camera does not exists");
+                    await dialog.ShowAsync();
+                    CoreApplication.Exit();
+
                 }
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine("MediaCapture initialization failed. {0}", ex.Message);
-                    var dialog = new Windows.UI.Popups.MessageDialog("MediaCapture initialization failed. { 0 }", ex.Message);
+                    var dialog = new Windows.UI.Popups.MessageDialog(ex.Message, "MediaCapture initialization failed.");
                     await dialog.ShowAsync();
                     CoreApplication.Exit();
                 }
