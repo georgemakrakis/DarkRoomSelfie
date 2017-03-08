@@ -12,6 +12,7 @@ using Windows.Media.Capture;
 using Windows.Media.MediaProperties;
 using Windows.Storage;
 using Windows.Storage.Streams;
+using Windows.System;
 using Windows.System.Display;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -35,7 +36,6 @@ namespace DarkRoomSelfie
         private bool _isPreviewing;
 
         private CameraRotationHelper _rotationHelper;
-
 
         private async Task InitializeCameraAsync()
         {
@@ -100,7 +100,7 @@ namespace DarkRoomSelfie
                     System.Diagnostics.Debug.WriteLine("MediaCapture initialization failed. {0}", ex.Message);
                     var dialog = new Windows.UI.Popups.MessageDialog("Please connect a camera device to proceed.", "Camera does not exists");
                     await dialog.ShowAsync();
-                    CoreApplication.Exit();
+                    //CoreApplication.Exit();
 
                 }
                 catch (Exception ex)
@@ -111,8 +111,7 @@ namespace DarkRoomSelfie
                     CoreApplication.Exit();
                 }
             }
-        }
-
+        }       
         private async Task SetPreviewRotationAsync()
         {
             if (!_externalCamera)
@@ -271,5 +270,12 @@ namespace DarkRoomSelfie
                 deferral.Complete();
             }
         }
+
+        private async void Photos_Click(object sender, RoutedEventArgs e)
+        {
+            StorageFolder PicturesFolder = KnownFolders.PicturesLibrary;
+            await Launcher.LaunchFolderAsync(PicturesFolder);            
+        }
+
     }
 }

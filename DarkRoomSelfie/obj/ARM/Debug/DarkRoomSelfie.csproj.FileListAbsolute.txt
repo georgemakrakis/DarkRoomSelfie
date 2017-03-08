@@ -111,7 +111,6 @@ C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelf
 C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\ARM\Debug\System.Xml.XDocument.dll
 C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\ARM\Debug\System.Xml.XmlDocument.dll
 C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\ARM\Debug\System.Xml.XmlSerializer.dll
-C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\obj\ARM\Debug\DarkRoomSelfie.csprojResolveAssemblyReference.cache
 C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\obj\ARM\Debug\App.g.i.cs
 C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\obj\ARM\Debug\App.g.cs
 C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\obj\ARM\Debug\MainPage.g.i.cs

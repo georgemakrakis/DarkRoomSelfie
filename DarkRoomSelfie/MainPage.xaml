@@ -21,6 +21,8 @@
         <Grid x:Name="SecondGrid" Grid.Column="1" Grid.Row="0" Background="#107C10" />-->
         <CaptureElement x:Name="PreviewControl" Stretch="Uniform"/>
         <Button x:Name="Capture" HorizontalAlignment="Center" Content="Capture" Click="CapturePhoto_Click"></Button>
+        <Button x:Name="Photos" HorizontalAlignment="Center" Content="Photos" Click="Photos_Click"></Button>
+
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="WideState">
@@ -37,6 +39,7 @@
                         <Setter Target="Capture.Margin" Value="6 0 0 0"/>
                         <Setter Target="Capture.(Grid.Column)" Value="1"/>
                         <Setter Target="Capture.(Grid.Row)" Value="0"/>
+                        
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="NarrowState">
@@ -53,6 +56,8 @@
                         <Setter Target="MainGrid.ColumnDefinitions[1].Width" Value="auto"/>
                         <Setter Target="Capture.(Grid.Column)" Value="0"/>
                         <Setter Target="Capture.(Grid.Row)" Value="1"/>
+                        <Setter Target="Photos.(Grid.Column)" Value="1"/>
+                        <Setter Target="Photos.(Grid.Row)" Value="1"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

@@ -21,9 +21,11 @@
         <Grid x:Name="SecondGrid" Grid.Column="1" Grid.Row="0" Background="#107C10" />-->
         <CaptureElement x:ConnectionId='2' x:Name="PreviewControl" Stretch="Uniform"/>
         <Button x:ConnectionId='3' x:Name="Capture" HorizontalAlignment="Center" Content="Capture"                           ></Button>
+        <Button x:ConnectionId='4' x:Name="Photos" HorizontalAlignment="Center" Content="Photos"                     ></Button>
+
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
-                <VisualState x:ConnectionId='4' x:Name="WideState">
+                <VisualState x:ConnectionId='5' x:Name="WideState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
@@ -37,9 +39,10 @@
                         <Setter Target="Capture.Margin" Value="6 0 0 0"/>
                         <Setter Target="Capture.(Grid.Column)" Value="1"/>
                         <Setter Target="Capture.(Grid.Row)" Value="0"/>
+                        
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:ConnectionId='5' x:Name="NarrowState">
+                <VisualState x:ConnectionId='6' x:Name="NarrowState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
@@ -53,6 +56,8 @@
                         <Setter Target="MainGrid.ColumnDefinitions[1].Width" Value="auto"/>
                         <Setter Target="Capture.(Grid.Column)" Value="0"/>
                         <Setter Target="Capture.(Grid.Row)" Value="1"/>
+                        <Setter Target="Photos.(Grid.Column)" Value="1"/>
+                        <Setter Target="Photos.(Grid.Row)" Value="1"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
