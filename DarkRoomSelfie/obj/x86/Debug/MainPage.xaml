@@ -21,7 +21,7 @@
         <Grid x:Name="SecondGrid" Grid.Column="1" Grid.Row="0" Background="#107C10" />-->
         <CaptureElement x:ConnectionId='2' x:Name="PreviewControl" Stretch="Uniform"/>
         <Button x:ConnectionId='3' x:Name="Capture" HorizontalAlignment="Center" Content="Capture"                           ></Button>
-        <Button x:ConnectionId='4' x:Name="Photos" HorizontalAlignment="Center" Content="Photos"                     ></Button>
+        <Button x:ConnectionId='4' x:Name="Photos" HorizontalAlignment="Center" Content="Photos"                      Margin="252,26,18,22"></Button>
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -36,10 +36,13 @@
                         <Setter Target="PreviewControl.Margin" Value="0 0 6 0" />
                         <Setter Target="PreviewControl.Width" Value="600"/>
                         <Setter Target="PreviewControl.Height" Value="600"/>
-                        <Setter Target="Capture.Margin" Value="6 0 0 0"/>
-                        <Setter Target="Capture.(Grid.Column)" Value="1"/>
-                        <Setter Target="Capture.(Grid.Row)" Value="0"/>
-                        
+                        <Setter Target="Capture.Margin" Value="6 0 0 50"/>
+                        <Setter Target="Photos.Margin" Value="6 0 0 50"/>
+                        <Setter Target="Capture.(Grid.Column)" Value="0"/>
+                        <Setter Target="Capture.(Grid.Row)" Value="1"/>
+                        <Setter Target="Photos.(Grid.Column)" Value="1"/>
+                        <Setter Target="Photos.(Grid.Row)" Value="1"/>
+
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:ConnectionId='6' x:Name="NarrowState">
@@ -52,11 +55,12 @@
                         <Setter Target="PreviewControl.Width" Value="300"/>
                         <Setter Target="PreviewControl.Height" Value="300"/>
                         <Setter Target="Capture.Margin" Value="0 3 0 0"/>
+                        <Setter Target="Photos.Margin" Value="250 3 0 0"/>
                         <Setter Target="MainGrid.RowDefinitions[1].Height" Value="*"/>
                         <Setter Target="MainGrid.ColumnDefinitions[1].Width" Value="auto"/>
                         <Setter Target="Capture.(Grid.Column)" Value="0"/>
                         <Setter Target="Capture.(Grid.Row)" Value="1"/>
-                        <Setter Target="Photos.(Grid.Column)" Value="1"/>
+                        <Setter Target="Photos.(Grid.Column)" Value="0"/>
                         <Setter Target="Photos.(Grid.Row)" Value="1"/>
                     </VisualState.Setters>
                 </VisualState>

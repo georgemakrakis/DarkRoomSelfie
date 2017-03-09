@@ -189,3 +189,4 @@ C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelf
 C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\obj\ARM\Debug\qualifiers.txt.intermediate
 C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\obj\ARM\Debug\ProjectArchitectures.txt
+C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\obj\ARM\Debug\DarkRoomSelfie.csprojResolveAssemblyReference.cache

@@ -273,6 +273,7 @@ namespace DarkRoomSelfie
 
         private async void Photos_Click(object sender, RoutedEventArgs e)
         {
+            //Getting access to Pictures folder and launching it
             StorageFolder PicturesFolder = KnownFolders.PicturesLibrary;
             await Launcher.LaunchFolderAsync(PicturesFolder);            
         }
