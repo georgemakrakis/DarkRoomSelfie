@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-23T20:58:54.569</Modified>
+      <Modified>2017-03-23T23:34:23.541</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\DarkRoomSelfie.exe">
       <PackagePath>entrypoint\DarkRoomSelfie.exe</PackagePath>
-      <Modified>2017-03-23T20:58:52.134</Modified>
+      <Modified>2017-03-23T23:34:22.755</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\georg\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -497,11 +497,11 @@
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-23T20:58:54.143</Modified>
+      <Modified>2017-03-23T23:34:23.326</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\Core\DarkRoomSelfie.exe">
       <PackagePath>DarkRoomSelfie.exe</PackagePath>
-      <Modified>2017-03-23T20:58:54.549</Modified>
+      <Modified>2017-03-23T23:34:23.535</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
