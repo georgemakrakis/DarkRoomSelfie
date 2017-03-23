@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>BAB33FFB66C8CE5423B8BEC54A8847AD104CEE307B13E7E5DE4EFC7E9BD90D9A</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>ED818E39CC0988D30178F5C617F4DB788B1A6203D2E2CC10F7F383C7E1086331</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>cdb32e2a-5d7f-44e5-b963-c4b363aed8db_1.0.0.0_x86__0qkkhjbh1hzk6</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>cdb32e2a-5d7f-44e5-b963-c4b363aed8db_0qkkhjbh1hzk6!App</RegisteredUserModeAppID>
     <RegisteredPackageID>cdb32e2a-5d7f-44e5-b963-c4b363aed8db</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-09T21:10:47.717</Modified>
+      <Modified>2017-03-23T20:58:54.569</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\DarkRoomSelfie.exe">
       <PackagePath>entrypoint\DarkRoomSelfie.exe</PackagePath>
-      <Modified>2017-03-09T21:10:47.213</Modified>
+      <Modified>2017-03-23T20:58:52.134</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\georg\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -492,16 +492,16 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2016-12-27T21:21:54.243</Modified>
+      <Modified>2017-03-23T20:39:36.165</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-03-09T21:10:17.794</Modified>
+      <Modified>2017-03-23T20:58:54.143</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\georg\Documents\Visual Studio 2015\Projects\DarkRoomSelfie\DarkRoomSelfie\bin\x86\Debug\Core\DarkRoomSelfie.exe">
       <PackagePath>DarkRoomSelfie.exe</PackagePath>
-      <Modified>2017-03-09T21:10:47.708</Modified>
+      <Modified>2017-03-23T20:58:54.549</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

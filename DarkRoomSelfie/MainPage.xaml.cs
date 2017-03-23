@@ -11,8 +11,8 @@ using Windows.Graphics.Imaging;
 using Windows.Media.Capture;
 using Windows.Media.MediaProperties;
 using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
-using Windows.System;
 using Windows.System.Display;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -274,8 +274,19 @@ namespace DarkRoomSelfie
         private async void Photos_Click(object sender, RoutedEventArgs e)
         {
             //Getting access to Pictures folder and launching it
-            StorageFolder PicturesFolder = KnownFolders.PicturesLibrary;
-            await Launcher.LaunchFolderAsync(PicturesFolder);            
+            
+            /*StorageFolder PicturesFolder = KnownFolders.PicturesLibrary;
+            await Launcher.LaunchFolderAsync(PicturesFolder);*/
+
+            FolderPicker picker = new FolderPicker()
+            {
+                SuggestedStartLocation = PickerLocationId.PicturesLibrary
+            };
+
+            picker.FileTypeFilter.Add(".jpg");
+            picker.FileTypeFilter.Add(".jpeg");
+            StorageFolder folder = await picker.PickSingleFolderAsync();
+
         }
 
     }
